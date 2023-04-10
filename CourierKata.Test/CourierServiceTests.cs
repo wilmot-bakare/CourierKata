@@ -54,8 +54,25 @@ namespace CourierKata.Test
             new Parcel { Height = 100, Width = 100, Depth = 100 }, //USD 25
             };
             var totalOrderCost = CourierKataService.CalculateOrderCost(parcelOrder);
-
+            Assert.NotZero(totalOrderCost.TotalCost);
             Assert.AreEqual(51, totalOrderCost.TotalCost);
+        }
+
+        [Test]
+        public void CalculateOrderCost_ReturnsSpeedyDeliveryFee()
+        {
+            ParcelOrder parcelOrder = new ParcelOrder();
+            parcelOrder.Parcels = new List<Parcel>
+            {
+            new Parcel { Height = 9, Width = 9, Depth = 9 }, //USD 3
+            new Parcel { Height = 49, Width = 49, Depth = 49 }, //USD 8
+            new Parcel { Height = 99, Width = 99, Depth = 99 },//USD 15
+            new Parcel { Height = 100, Width = 100, Depth = 100 }, //USD 25
+            };
+            var totalOrderCost = CourierKataService.CalculateOrderCost(parcelOrder);
+
+            Assert.NotZero(totalOrderCost.SpeedyDeliveryCost);
+            Assert.AreEqual(totalOrderCost.TotalCost *2, totalOrderCost.SpeedyDeliveryCost);
         }
 
 

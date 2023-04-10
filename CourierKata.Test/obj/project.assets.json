@@ -882,6 +882,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "CourierKata/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CourierKata.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CourierKata.dll": {}
+        }
       }
     }
   },
@@ -3843,10 +3853,16 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "CourierKata/1.0.0": {
+      "type": "project",
+      "path": "../CourierKata/CourierKata.csproj",
+      "msbuildProject": "../CourierKata/CourierKata.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CourierKata >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "NUnit >= 3.13.2",
       "NUnit3TestAdapter >= 4.0.0",
@@ -3884,7 +3900,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\CourierKata\\CourierKata\\CourierKata.csproj": {
+              "projectPath": "D:\\CourierKata\\CourierKata\\CourierKata.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

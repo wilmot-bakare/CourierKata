@@ -10,5 +10,6 @@ namespace CourierKata.Model
     {
         public List<Parcel> Parcels { get; set; }
         public decimal TotalCost { get; set; }
+        public decimal SpeedyDeliveryCost { get; set; }
     }
 }

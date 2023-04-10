@@ -48,6 +48,22 @@ namespace CourierKata
             return parcels.Sum(p => p.Cost);
         }
 
-       
+        public static ParcelOrderResponse CalculateOrderCost(ParcelOrder parcelOrder)
+        {
+            ParcelOrderResponse parcelOrderResponse = new ParcelOrderResponse();
+            parcelOrderResponse.Parcels = new List<Parcel>();
+            foreach (var parcel in parcelOrder.Parcels)
+            {
+                Parcel calculatedPacel = new Parcel();
+                calculatedPacel = CalculateCost(parcel.Height, parcel.Width, parcel.Depth);
+                parcelOrderResponse.Parcels.Add(calculatedPacel);
+            }
+            if(parcelOrderResponse.Parcels.Count > 0)
+            {
+               var totalTotalCost =  CalculateTotalCost(parcelOrderResponse.Parcels);
+                parcelOrderResponse.TotalCost = totalTotalCost;
+            }
+            return parcelOrderResponse;
+        }
     }
 }

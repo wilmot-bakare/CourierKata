@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CourierKataConsole/1.0.0": {
+        "dependencies": {
+          "CourierKata": "1.0.0"
+        },
+        "runtime": {
+          "CourierKataConsole.dll": {}
+        }
+      },
+      "CourierKata/1.0.0": {
+        "runtime": {
+          "CourierKata.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CourierKataConsole/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CourierKata/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

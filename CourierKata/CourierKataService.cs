@@ -8,7 +8,9 @@ namespace CourierKata
         public static readonly decimal MediumMaxWeight = 3;
         public static readonly decimal LargeMaxWeight = 6;
         public static readonly decimal XLMaxWeight = 10;
+        public static readonly decimal HeavyMaxWeight = 50;
         public static readonly decimal OverWeightBaseCharge = 2;
+        public static readonly decimal OverWeightBaseChargeForHeavy = 1;
         public static Parcel CalculateCost(decimal height, decimal width, decimal depth, decimal weight)
         {
             var dimensions = new[] { height, width, depth };
@@ -32,11 +34,18 @@ namespace CourierKata
                 size = ParcelSize.Large;
                 cost = 15;
             }
+            
             else
             {
                 size = ParcelSize.XL;
                 cost = 25;
             }
+            if (weight > 50)
+            {
+                size = ParcelSize.Heavy;
+                cost = 50;
+            }
+
 
             return new Parcel
             {
@@ -103,6 +112,10 @@ namespace CourierKata
             {
                 isOverweight =  true;
             }
+            else if (parcel.Size == ParcelSize.Heavy && parcel.Weight > 50)
+            {
+                isOverweight =  true;
+            }
 
             return isOverweight;
         }
@@ -129,6 +142,11 @@ namespace CourierKata
             {
                 weightDifference =  parcel.Weight - XLMaxWeight;
                 overWeightCharge = OverWeightBaseCharge * weightDifference;
+            }
+            else if (parcel.Size == ParcelSize.Heavy)
+            {
+                weightDifference =  parcel.Weight - HeavyMaxWeight;
+                overWeightCharge = OverWeightBaseChargeForHeavy * weightDifference;
             }
 
             return overWeightCharge;

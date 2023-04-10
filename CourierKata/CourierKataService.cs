@@ -48,6 +48,11 @@ namespace CourierKata
             return parcels.Sum(p => p.Cost);
         }
 
+        public static decimal CalculateSpeedyDeliveryCost(decimal totalCost)
+        {
+            return totalCost *2;
+        }
+
         public static ParcelOrderResponse CalculateOrderCost(ParcelOrder parcelOrder)
         {
             ParcelOrderResponse parcelOrderResponse = new ParcelOrderResponse();
@@ -62,6 +67,8 @@ namespace CourierKata
             {
                var totalTotalCost =  CalculateTotalCost(parcelOrderResponse.Parcels);
                 parcelOrderResponse.TotalCost = totalTotalCost;
+
+                parcelOrderResponse.SpeedyDeliveryCost =  CalculateSpeedyDeliveryCost(parcelOrderResponse.TotalCost);
             }
             return parcelOrderResponse;
         }
